@@ -19,11 +19,13 @@ body{
     height: 150px;
     margin: 10px;
 }
-.start{
+.start,
+#next{
     width: 145px;
     height: 60px;
     position:relative;
     top:80px;
+    margin-left: 10px;
     border-radius: 15px;
     color:white;
     background-color: #CE0000;
@@ -31,13 +33,37 @@ body{
     font-size: 17px;
     font-weight: bold;   
 }
-.start:active{
+.start:active,
+#next:active{
     box-shadow: 2px 2px 4px white inset;
 }
-.left-img,
+#next{
+    display: none;
+}
+p{
+    box-sizing: border-box;
+    border: #CE0000 solid 3px;
+    border-radius: 40px;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    padding-top: 20px;
+    position: relative;
+    top:150px;
+    left: 40px;
+    background-color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+figure{
+    border-radius: 15px;
+    box-shadow: 2px 2px 4px black;
+}
+
+figure,
 .timer{
     box-sizing: border-box;
-    border: black solid 2px;
     width: 250px;
     height: 250px;
     margin: 10px;
@@ -54,29 +80,42 @@ body{
     margin: 10px;
 }
 
-.questions{
+h1{
 border: #CE0000 solid 2px;
 border-radius: 15px;
 text-align: center;
 background-color: white;
 box-shadow: 2px 2px 4px #CE0000;
+padding-top: 50px;
 }
-.QA ul{
-    list-style: none;
+#answers{
+    display: flex;
+    flex-direction: column;
 }
-li{
+.answerbtn{
     box-sizing: border-box;
     border: black solid 0.5px;
     border-radius: 7px;
     box-shadow: 1px 1px 2px #CE0000;
     text-align: center;
     height: 30px;
+    width: 300px;
     margin-top: 25px;
     background-color: white;
     cursor: pointer;
     font-size: 20px;
     font-weight: bold;
 }
-li:active{
+/* .answerbtn:hover{
+background-color: bisque;
+color:#CE0000;
+} */
+.answerbtn:active{
     box-shadow: 1px 1px 2px #CE0000 inset;
+}
+.correct{
+    background: green;
+}
+.incorrect{
+    background: red;
 }
