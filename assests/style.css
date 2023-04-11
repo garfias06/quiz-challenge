@@ -13,14 +13,15 @@ body{
     
 }
 
-.btn{
+#btn{
     box-sizing: border-box;
     width: 150px;
     height: 150px;
     margin: 10px;
 }
 .start,
-#next{
+#next,
+#save{
     width: 145px;
     height: 60px;
     position:relative;
@@ -33,21 +34,26 @@ body{
     font-size: 17px;
     font-weight: bold;   
 }
+#save{
+    position:relative;
+    top:10px; 
+}
 .start:active,
-#next:active{
+#next:active,
+#save:active{
     box-shadow: 2px 2px 4px white inset;
 }
-#next{
+.hide{
     display: none;
 }
-p{
+h1{
     box-sizing: border-box;
     border: #CE0000 solid 3px;
     border-radius: 40px;
-    width: 70px;
-    height: 70px;
+    width: 85px;
+    height: 85px;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 10px;
     position: relative;
     top:150px;
     left: 40px;
@@ -56,12 +62,16 @@ p{
     font-size: 25px;
 }
 
-figure{
+.image{
+    object-fit: fill;
+    width: 250px;
+    height: 250px;
     border-radius: 15px;
     box-shadow: 2px 2px 4px black;
 }
 
-figure,
+
+/* figure, */
 .timer{
     box-sizing: border-box;
     width: 250px;
@@ -72,15 +82,17 @@ figure,
     display: flex;
     justify-content: center;
 }
-.QA h1,
-.QA ul{
+.QA h2,
+.QA ul, 
+.QA form{
     box-sizing: border-box;
     width: 300px;
     height: 250px;
     margin: 10px;
 }
 
-h1{
+h2, 
+form{
 border: #CE0000 solid 2px;
 border-radius: 15px;
 text-align: center;
@@ -106,10 +118,7 @@ padding-top: 50px;
     font-size: 20px;
     font-weight: bold;
 }
-/* .answerbtn:hover{
-background-color: bisque;
-color:#CE0000;
-} */
+
 .answerbtn:active{
     box-shadow: 1px 1px 2px #CE0000 inset;
 }
