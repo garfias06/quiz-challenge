@@ -10,24 +10,34 @@
 <body>
     <main>
         <section class="box1">
-            <figure class="left-img"></figure>
-            <div class="btn">
-                <button class="start">START QUIZ</button>
+            <figure class="left-img">
+                <img class="image" src="./assests/images/2016-championship.jpg" alt="first img">
+            </figure>
+            <div >
+                <button class="start" id="btn">START QUIZ</button>
             </div>
             <div class="timer">
-                <p id="clock"></p>
+                <h1 id="clock"></h1>
             </div>
         </section>
 
         <section class="QA">
-            <h1 id="questions">??????</h1>
-            <div id="answers">
-                <button class="answerbtn">answer</button>
-                <button class="answerbtn">answer</button>
-                <button class="answerbtn">answer</button>
-                <button class="answerbtn">answer</button>
+            
+            <form id="form" class="hide">
+                <h1 id="score" ></h1>
+                <!-- <label for="score">Score:</label><br>
+                <input type="text" id="score" name="score"><br> -->
+                <label for="Initials">Initials:</label>
+                <input type="text" id="initials" name="initials"><br><br>
+                <input id="save" type="submit" value="SAVE">
+              </form>
+            <h2 id="questions" class="hide"></h2>
+            <div id="answers" class="hide">
+                
             </div>
-            <button id="next">NEXT QUESTION</button>
+
+           
+            <!-- <button id="next">NEXT QUESTION</button> -->
         </section>
         
 </main>
