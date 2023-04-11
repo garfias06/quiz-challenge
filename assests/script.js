@@ -63,42 +63,31 @@ var save = document.getElementById("save");
 var questionsIndex = 0;
 var score = 0;
 var timerId;
-var highscores = []
-
-// !experiment
-// // Hiding questions and answers
-// function resetQuiz() {
-//     questionsElement.style.display = "none";
-//     answersElement.style.display = "none";
-// }
-
-
+var highscores = [];
 
 // !REAL QUIZ
 function quiz() {
-    // the name of this button will be replaced later as a "restart quiz"
-    // next.innerHTML = "NEXT QUESTION";
-    questionsElement.classList.remove('hide')
-    answersElement.classList.remove('hide')
-    startBtn.classList.add('hide')
-    timer.textContent = secondsLeft
+    // Once the quiz starts it will show questions and answers that were hidden before the quiz started, this shows once we click the start button
+    questionsElement.classList.remove('hide');
+    answersElement.classList.remove('hide');
+    // this will hide the start button once clicked
+    startBtn.classList.add('hide');
+    timer.textContent = secondsLeft;
     timerId = setInterval(function () {
-        secondsLeft--
-        timer.textContent = secondsLeft + ' Secs Left'
+        secondsLeft--;
+        timer.textContent = secondsLeft + ' Secs left'
     }, 1000);
     showQuestions();
 };
 
 function showQuestions() {
 
-    answersElement.innerHTML = ''
+    answersElement.innerHTML = '';
     // variable to store questions index
     var cQuestion = questions[questionsIndex];
 
-    // adding the question number to the html file using innerHTML to select the specific element 
+    //the content in questions element on html file will be equal to the question from the questionsIndex
     questionsElement.textContent = cQuestion.question;
-
-    // adding answers to buttons
 
     cQuestion.answers.forEach(answer => {
         var button = document.createElement("button");
@@ -106,83 +95,55 @@ function showQuestions() {
         button.textContent = answer.text;
         button.classList.add("answerbtn");
 
-        // when clicking on answers button it will select the answer
+        //setting an attribute to button, each button will show possible answers
         button.setAttribute('value', answer.correct);
         button.addEventListener("click", pickAnswer);
 
         answersElement.appendChild(button);
-        // this will validate if the selected answer is either true or false
-
-
     });
 }
-
+// Validating when clicking on an answer
 function pickAnswer(e) {
 
     if (this.value === "false") {
         secondsLeft -= 5;
         timer.textContent = secondsLeft + ' Secs Left'
-
-        // // if answer is correct it will add a new class for each button, new background color was added for correct and incorrect answer
-        // //
-        // this.classList.add("correct");
-        // score += 20;
-
     }
-    // else {
-    // this.classList.add("incorrect");
 
-
-
-    // }
-    // !Experiment for time
-    // I could add time interval here.
     questionsIndex++;
     if (questionsIndex === questions.length || secondsLeft === 0) {
-
+    clearInterval(timerId);
         showScore();
     } else {
-        showQuestions()
+        showQuestions();
     }
-
-
 }
-
 
 // This will show final score
 function showScore() {
-    // resetState();
     document.getElementById('score').textContent = "Score: " + secondsLeft;
-
-    submitS.classList.remove('hide')
-    questionsElement.classList.add('hide')
-    answersElement.classList.add('hide')
+    // form will show
+    submitS.classList.remove('hide');
+    // questions and answers will be hidden
+    questionsElement.classList.add('hide');
+    answersElement.classList.add('hide');
     
-    // // renderScore();
 }
 
+// submitting score to local storage
 function submitScore(e){
-    e.preventDefault()
+    e.preventDefault();
     var initials = document.getElementById("initials");
     var scoreIn = {
         score: secondsLeft,
         initials: initials.value
     };
 
-    highscores.push(scoreIn)
-    localStorage.setItem("scoreIn", JSON.stringify(highscores));
+    highscores.push(scoreIn);
+    localStorage.setItem("scoreIn", JSON.stringify(highscores));   
 }
 
-submitS.addEventListener('submit',submitScore )
-
-
-
-
-// // quiz();  
-// resetQuiz();
-
-
-
+submitS.addEventListener('submit',submitScore );
 
 // Starts quiz by clicking on start quiz button
 startBtn.addEventListener("click", quiz);
