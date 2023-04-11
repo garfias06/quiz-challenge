@@ -77,6 +77,7 @@ function quiz() {
         secondsLeft--;
         timer.textContent = secondsLeft + ' Secs left'
     }, 1000);
+
     showQuestions();
 };
 
@@ -102,8 +103,9 @@ function showQuestions() {
         answersElement.appendChild(button);
     });
 }
+
 // Validating when clicking on an answer
-function pickAnswer(e) {
+function pickAnswer() {
 
     if (this.value === "false") {
         secondsLeft -= 5;
@@ -113,9 +115,11 @@ function pickAnswer(e) {
         score += 20;
     }
     questionsIndex++;
-    if (questionsIndex === questions.length || secondsLeft === 0) {
+
+    if (questionsIndex === questions.length || timer === 0) {
         showScore();
         clearInterval(timerId);
+        
     } else {
         showQuestions();
     }
@@ -123,13 +127,13 @@ function pickAnswer(e) {
 
 // This will show final score
 function showScore() {
+    
     document.getElementById('score').textContent = "Score: " + score + "points";
     // form will show
     submitS.classList.remove('hide');
     // questions and answers will be hidden
     questionsElement.classList.add('hide');
     answersElement.classList.add('hide');
-    
 }
 
 // submitting score to local storage
@@ -145,7 +149,8 @@ function submitScore(e){
     localStorage.setItem("scoreIn", JSON.stringify(highscores));   
 }
 
-submitS.addEventListener('submit',submitScore);
+
+submitS.addEventListener('submit', submitScore);
 
 // Starts quiz by clicking on start quiz button
 startBtn.addEventListener("click", quiz);
