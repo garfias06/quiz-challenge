@@ -109,11 +109,13 @@ function pickAnswer(e) {
         secondsLeft -= 5;
         timer.textContent = secondsLeft + ' Secs Left'
     }
-
+    if (this.value === "true") {
+        score += 20;
+    }
     questionsIndex++;
     if (questionsIndex === questions.length || secondsLeft === 0) {
-    clearInterval(timerId);
         showScore();
+        clearInterval(timerId);
     } else {
         showQuestions();
     }
@@ -121,7 +123,7 @@ function pickAnswer(e) {
 
 // This will show final score
 function showScore() {
-    document.getElementById('score').textContent = "Score: " + secondsLeft;
+    document.getElementById('score').textContent = "Score: " + score + "points";
     // form will show
     submitS.classList.remove('hide');
     // questions and answers will be hidden
@@ -135,7 +137,7 @@ function submitScore(e){
     e.preventDefault();
     var initials = document.getElementById("initials");
     var scoreIn = {
-        score: secondsLeft,
+        score: score,
         initials: initials.value
     };
 
@@ -143,7 +145,7 @@ function submitScore(e){
     localStorage.setItem("scoreIn", JSON.stringify(highscores));   
 }
 
-submitS.addEventListener('submit',submitScore );
+submitS.addEventListener('submit',submitScore);
 
 // Starts quiz by clicking on start quiz button
 startBtn.addEventListener("click", quiz);

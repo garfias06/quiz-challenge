@@ -1,21 +1,25 @@
 # quiz-challenge
 
 ## Description
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+This is a timed quiz about the career of the NBA player LeBron James, each question has a value of 20 points.
+There are different ways to interact with a webpage using JavaScript, in this challenge I noticed the importance of navigating the DOM, how we can create elements, change elements content en even delete elements from an html file by just using JavaScript code. This is a good way to make a webpage more interactive for the user. 
+
 ## Usage
-Provide instructions and examples for use. Include screenshots as needed.
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
-![alt text](assets/images/screenshot.png)
+- Once page loads the user will be presented with a start button and timer, once the start button is clicked, questions and answers will be shown to the user. Timer will start at 60 seconds and counting down.
+![Start-Quiz](./assests/images/start-quiz.jpg)
+![Quiz](./assests/images/quiz-started.jpg)
+- When question is answered wrong, 5 seconds will be subtracted from timer and no points will be added.
+- When the user answers all questions, score and initials input will be displayed.
+![Score](./assests/images/score-initials.jpg)
+- Initials and score will be added to the local storage.
+![Local Storage](./assests/images/local-storage.jpg)
+
 ## Credits
 Img:https://www.facebook.com/nba/photos/a.90133653462/10159926631303463/?type=3
 
 https://www.w3schools.com/
 
-Tutor Jose Lopez
+Tutor: Jose Lopez
 
 ## License
 MIT License
